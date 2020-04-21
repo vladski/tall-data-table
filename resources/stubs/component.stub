@@ -1,0 +1,51 @@
+<?php
+
+namespace App\Http\Livewire;
+
+use App\DummyModel;
+use Illuminate\Database\Eloquent\Builder;
+use Livewire\Component;
+use Rappasoft\LaravelLivewireTables\TableComponent;
+use Rappasoft\LaravelLivewireTables\Views\Column;
+
+class DummyComponent extends Component
+{
+    use TableComponent;
+
+    public function mount()
+    {
+        $this->setupTable();
+        $this->fill([
+            'title' => trans('crud.model.title'),
+            'sortField' => 'name',
+            'sortAsc' => true,
+            'modelName' => 'event',
+        ]);
+    }
+
+    public function query(): Builder
+    {
+        return DummyModel::query();
+    }
+
+    public function columns()
+    {
+        return [
+            Column::make('Nr', 'id')->searchable()->sortable(),
+            Column::make('Name')->searchable()->sortable(),
+            Column::make('Description')->searchable()->sortable(),
+            Column::make('Published', 'published')
+                ->sortable()
+                ->hideOnMobile()
+                ->components([
+                    Boolean::make(null, 'published')
+                        ->icon([
+                            'true' => 'light/eye',
+                            'false' => 'light/eye-slash',
+                            'true-class' => 'text-aurora-green',
+                            'false-class' => 'text-aurora-red'
+                        ])
+                ]),
+        ];
+    }
+}
