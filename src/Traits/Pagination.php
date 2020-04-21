@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Traits;
+namespace Tanthammar\TallDataTable\Traits;
 
 /**
  * Trait Pagination.
@@ -51,7 +51,7 @@ trait Pagination
         foreach ([
             'paginationView'
         ] as $property) {
-            $this->$property = $this->$property ?? config('laravel-livewire-tables.' . $property);
+            $this->$property = $this->$property ?? config('tall-data-table.' . $property);
         }
     }
 }

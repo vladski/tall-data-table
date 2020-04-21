@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Traits;
+namespace Tanthammar\TallDataTable\Traits;
 
 trait Table
 {
@@ -137,7 +137,7 @@ trait Table
             'tableFooterEnabled',
             'arrow',
         ] as $property) {
-            $this->$property = $this->$property ?? config('laravel-livewire-tables.' . $property);
+            $this->$property = $this->$property ?? config('tall-data-table.' . $property);
         }
     }
 }

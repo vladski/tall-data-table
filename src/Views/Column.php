@@ -1,9 +1,9 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Views;
+namespace Tanthammar\TallDataTable\Views;
 
 use Illuminate\Support\Str;
-use Rappasoft\LaravelLivewireTables\Traits\HasComponents;
+use Tanthammar\TallDataTable\Traits\HasComponents;
 
 /**
  * Class Column.

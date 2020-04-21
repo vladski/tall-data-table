@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Views;
+namespace Tanthammar\TallDataTable\Views;
 
 /**
  * Class Link.
@@ -84,6 +84,6 @@ class Link extends Component
      */
     public function view(): string
     {
-        return 'laravel-livewire-tables::components.link';
+        return 'tall-data-table::components.link';
     }
 }

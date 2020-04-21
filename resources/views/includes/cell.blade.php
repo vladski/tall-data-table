@@ -1,7 +1,7 @@
 @if ($column->hasComponents())
-    @include('laravel-livewire-tables::includes.component')
+    @include('tall-data-table::includes.component')
 @elseif ($column->isView())
     @include($column->view)
 @else
-    @include('laravel-livewire-tables::includes.field')
+    @include('tall-data-table::includes.field')
 @endif

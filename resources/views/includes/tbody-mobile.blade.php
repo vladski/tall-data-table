@@ -3,7 +3,7 @@ class="sm:hidden cursor-pointer {{ $trClass }}"
 wire:key="{{ $model->{$model->getRouteKeyName()} }}">
     {{-- left checkbox --}}
     @if($checkbox && $checkboxLocation === 'left')
-        @include('laravel-livewire-tables::includes.checkbox-row')
+        @include('tall-data-table::includes.checkbox-row')
     @endif
     
     {{-- start td --}}
@@ -15,7 +15,7 @@ wire:key="{{ $model->{$model->getRouteKeyName()} }}">
                 <tr class="tr">
                     @foreach ($group as $column)
                         <td class="{{ $column->colClass }} {{ $column->visibility }} {{ $column->align }}">
-                            @include('laravel-livewire-tables::includes.td-mobile-content')
+                            @include('tall-data-table::includes.td-mobile-content')
                         </td>
                     @endforeach
                 </tr>
@@ -26,7 +26,7 @@ wire:key="{{ $model->{$model->getRouteKeyName()} }}">
             @foreach($groups as $group)
             @foreach ($group as $column)
                 <div class="w-full flex flex-inline {{ $column->colClass }} {{ $column->visibility }} {{ $column->align }}">
-                    @include('laravel-livewire-tables::includes.td-mobile-content')
+                    @include('tall-data-table::includes.td-mobile-content')
                 </div>
             @endforeach
             @endforeach
@@ -35,11 +35,11 @@ wire:key="{{ $model->{$model->getRouteKeyName()} }}">
 
     {{-- right checkbox --}}
     @if($checkbox && $checkboxLocation === 'right')
-        @include('laravel-livewire-tables::includes.checkbox-row')
+        @include('tall-data-table::includes.checkbox-row')
     @endif
 
     {{-- arrow --}}
     @if($arrow)
-        @include('laravel-livewire-tables::includes.right-arrow')
+        @include('tall-data-table::includes.right-arrow')
     @endif
 </tr>

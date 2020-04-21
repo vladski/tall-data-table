@@ -17,17 +17,17 @@
             @endif
                 {{-- default view --}}
                 @if(empty($tbodyDesktop) && empty($tbodyMobile))
-                    @include('laravel-livewire-tables::includes.body-tr')
+                    @include('tall-data-table::includes.body-tr')
 
                 {{-- custom desktop view --}}
                 @elseif(filled($tbodyDesktop) && empty($tbodyMobile))
                         <span class="hidden md:display-contents">@include($tbodyDesktop)</span>
-                        <span class="display-contents md:hidden">@include('laravel-livewire-tables::includes.body-tr')</span>
+                        <span class="display-contents md:hidden">@include('tall-data-table::includes.body-tr')</span>
 
                 {{-- custom mobile view --}}
                 @elseif(empty($tbodyDesktop) && filled($tbodyMobile))
                         <span class="display-contents md:hidden">@include($tbodyMobile)</span>
-                        <span class="hidden md:display-contents">@include('laravel-livewire-tables::includes.body-tr')</span>
+                        <span class="hidden md:display-contents">@include('tall-data-table::includes.body-tr')</span>
                 @endif
             </div>
             @if($hasRowPanel && $selectedID == $model->uuid)

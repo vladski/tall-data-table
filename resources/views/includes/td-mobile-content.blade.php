@@ -4,5 +4,5 @@
 </div>
 {{-- field --}}
 <div class="flex-1">
-    @include('laravel-livewire-tables::includes.cell')
+    @include('tall-data-table::includes.cell')
 </div>

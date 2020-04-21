@@ -1,6 +1,6 @@
 {{-- left checkbox --}}
 @if($checkbox && $checkboxLocation === 'left')
-    @include('laravel-livewire-tables::includes.checkbox-row')
+    @include('tall-data-table::includes.checkbox-row')
 @endif
 
 @foreach($groups as $group)
@@ -8,14 +8,14 @@
         <div class="{{ $tdClass }}">  
             @foreach($group as $column)
                 <div class="{{ $column->visibility }} md:hidden w-1/4 text-xs text-gray-400">{{ $column->text }}</div>
-                <div class="flex-1 md:block py-2 {{ $column->align }} {{ $column->visibility }} {{ $column->colClass}}">@include('laravel-livewire-tables::includes.cell')</div>
+                <div class="flex-1 md:block py-2 {{ $column->align }} {{ $column->visibility }} {{ $column->colClass}}">@include('tall-data-table::includes.cell')</div>
             @endforeach
         </div>
     @else
         @foreach($group as $column)
             <div class="{{ $tdClass }} {{ $column->align }} {{ $column->visibility }} {{ $column->colClass}}">
                 <div class="md:hidden w-1/4 text-xs text-gray-400  text-left">{{ $column->text }}</div>
-                <div class="flex-1 md:block py-2">@include('laravel-livewire-tables::includes.cell')</div>
+                <div class="flex-1 md:block py-2">@include('tall-data-table::includes.cell')</div>
             </div>
         @endforeach
     @endif
@@ -27,7 +27,7 @@
     <div class="h-full flex items-center md:block text-right">
         {{-- right checkbox --}}
         @if($checkbox && $checkboxLocation === 'right')
-            @include('laravel-livewire-tables::includes.checkbox-row')
+            @include('tall-data-table::includes.checkbox-row')
         @elseif($hasRowPanel)
             @if($selectedID == $model->uuid)
                 @svg('light/chevron-down', 'ml-auto h-5 w-5 text-gray-400')

@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Views;
+namespace Tanthammar\TallDataTable\Views;
 
 use Illuminate\Support\Str;
 
@@ -102,6 +102,6 @@ class Boolean extends Component
      */
     public function view(): string
     {
-        return 'laravel-livewire-tables::components.boolean';
+        return 'tall-data-table::components.boolean';
     }
 }

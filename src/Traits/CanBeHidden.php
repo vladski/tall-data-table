@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Traits;
+namespace Tanthammar\TallDataTable\Traits;
 
 /**
  * Trait CanBeHidden.

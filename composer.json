@@ -1,26 +1,27 @@
 {
-    "name": "rappasoft/laravel-livewire-tables",
-    "description": "A dynamic table component for Laravel Livewire",
+    "name": "tanthammar/tall-data-table",
+    "description": "TALL stack, Tailwind Alpine Laravel Livewire data table trait",
     "keywords": [
-        "rappasoft",
+        "tailwind",
+        "alpinejs",
         "livewire",
         "datatables",
         "tables",
         "laravel"
     ],
-    "homepage": "https://github.com/rappasoft/laravel-livewire-tables",
+    "homepage": "https://github.com/tanthammar/tall-data-table",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
-            "name": "Anthony Rappa",
-            "email": "rappa819@gmail.com",
+            "name": "Tina Hammar",
+            "email": "post@tinahammar.se",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^7.2.5",
-        "livewire/livewire": "^1.0",
+        "php": "^7.4.4",
+        "livewire/livewire": "^1.0.12",
         "nothingworks/blade-svg": "^0.3.4"
     },
     "require-dev": {
@@ -28,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Rappasoft\\LaravelLivewireTables\\": "src"
+            "tanthammar\\TallDataTable\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Rappasoft\\LaravelLivewireTables\\Tests\\": "tests"
+            "tanthammar\\TallDataTable\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -46,7 +47,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Rappasoft\\LaravelLivewireTables\\LivewireTablesServiceProvider"
+                "tanthammar\\TallDataTable\\TallDataTableServiceProvider"
             ]
         }
     }

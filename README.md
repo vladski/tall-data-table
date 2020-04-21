@@ -4,9 +4,9 @@
 
 # A dynamic table component for Laravel Livewire
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/rappasoft/laravel-livewire-tables.svg?style=flat-square)](https://packagist.org/packages/rappasoft/laravel-livewire-tables)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/tanthammar/tall-data-table.svg?style=flat-square)](https://packagist.org/packages/tanthammar/tall-data-table)
 [![StyleCI](https://styleci.io/repos/250246992/shield?style=plastic)](https://github.styleci.io/repos/250246992)
-[![Total Downloads](https://img.shields.io/packagist/dt/rappasoft/laravel-livewire-tables.svg?style=flat-square)](https://packagist.org/packages/rappasoft/laravel-livewire-tables)
+[![Total Downloads](https://img.shields.io/packagist/dt/tanthammar/tall-data-table.svg?style=flat-square)](https://packagist.org/packages/tanthammar/tall-data-table)
 
 **This package is still in development and does not have a test suite.**
 
@@ -19,7 +19,7 @@ This plugin assumes you already have [Laravel Livewire](https://laravel-livewire
 You can install the package via composer:
 
 ``` bash
-composer require rappasoft/laravel-livewire-tables
+composer require tanthammar/tall-data-table
 ```
 
 ## Usage
@@ -35,8 +35,8 @@ namespace App\Http\Livewire;
 
 use App\User;
 use Illuminate\Database\Eloquent\Builder;
-use Rappasoft\LaravelLivewireTables\Views\Column;
-use Rappasoft\LaravelLivewireTables\TableComponent;
+use Tanthammar\TallDataTable\Views\Column;
+use Tanthammar\TallDataTable\TableComponent;
 
 class UsersTable extends TableComponent
 {
@@ -513,7 +513,7 @@ public function columns() : array {
 
 ## Inspiration From:
 
-- [https://github.com/kdion4891/laravel-livewire-tables](https://github.com/kdion4891/laravel-livewire-tables)
+- [https://github.com/kdion4891/tall-data-table](https://github.com/kdion4891/tall-data-table)
 - [https://github.com/yajra/laravel-datatables](https://github.com/yajra/laravel-datatables)
 
 ## Changelog
@@ -530,7 +530,7 @@ If you discover any security related issues, please email rappa819@gmail.com ins
 
 ## Credits
 
-- [Anthony Rappa](https://github.com/rappasoft)
+- [Anthony Rappa](https://github.com/tanthammar)
 - [All Contributors](../../contributors)
 
 ## License

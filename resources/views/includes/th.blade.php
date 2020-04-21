@@ -5,7 +5,7 @@
 @else
     {{-- left checkbox --}}
     @if($checkbox && $checkboxLocation === 'left')
-        @include('laravel-livewire-tables::includes.checkbox-all')
+        @include('tall-data-table::includes.checkbox-all')
     @endif
     {{-- loop --}}
     @if(count($groups) > 1)
@@ -13,7 +13,7 @@
         <div dusk="th" class="{{ $thClass }}">
                 @foreach ($group as $column)
                     <div class="w-full {{ $column->align }} {{ $column->visibility }}">
-                        @include('laravel-livewire-tables::includes.th-link')
+                        @include('tall-data-table::includes.th-link')
                     </div> 
                 @endforeach
             </div>
@@ -22,7 +22,7 @@
         @foreach($groups as $group)
             @foreach ($group as $column)
                 <div dusk="th" class="{{ $thClass }} {{ $column->visibility }} {{ $column->align }}">
-                    @include('laravel-livewire-tables::includes.th-link')
+                    @include('tall-data-table::includes.th-link')
                 </div>
             @endforeach
         @endforeach
@@ -33,7 +33,7 @@
     @endif
     {{-- right checkbox --}}
     @if($checkbox && $checkboxLocation === 'right')
-        @include('laravel-livewire-tables::includes.checkbox-all')
+        @include('tall-data-table::includes.checkbox-all')
     @endif
     {{-- empty div for arrow --}}
     @if($arrow)

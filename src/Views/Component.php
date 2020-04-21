@@ -1,9 +1,9 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Views;
+namespace Tanthammar\TallDataTable\Views;
 
-use Rappasoft\LaravelLivewireTables\Traits\CanBeHidden;
-use Rappasoft\LaravelLivewireTables\Views\Contracts\ComponentContract;
+use Tanthammar\TallDataTable\Traits\CanBeHidden;
+use Tanthammar\TallDataTable\Views\Contracts\ComponentContract;
 
 /**
  * Class Clickable.
