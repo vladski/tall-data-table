@@ -29,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "tanthammar\\TallDataTable\\": "src"
+            "Tanthammar\\TallDataTable\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "tanthammar\\TallDataTable\\Tests\\": "tests"
+            "Tanthammar\\TallDataTable\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -47,7 +47,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "tanthammar\\TallDataTable\\TallDataTableServiceProvider"
+                "Tanthammar\\TallDataTable\\Providers\\TallDataTableServiceProvider"
             ]
         }
     }
