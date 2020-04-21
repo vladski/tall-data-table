@@ -3,7 +3,7 @@
 - Laravel 7
 - Alpine js
 - Tailwind css
-- https://github.com/adamwathan/blade-svg for **font-awesome icons**. Please setup the package following the instructions on that repo.
+- https://github.com/adamwathan/blade-svg for **font-awesome icons**. Please setup the package following the instructions in that repo.
 
 # TALL stack - Tailwind Alpinejs Laravel Livewire - data table component
 
