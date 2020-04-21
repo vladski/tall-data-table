@@ -514,6 +514,7 @@ public function columns() : array {
 ## Inspiration From:
 
 - [https://github.com/kdion4891/tall-data-table](https://github.com/kdion4891/tall-data-table)
+- [https://github.com/rappasoft/laravel-livewire-tables](https://github.com/rappasoft/laravel-livewire-tables)
 - [https://github.com/yajra/laravel-datatables](https://github.com/yajra/laravel-datatables)
 
 ## Changelog
@@ -530,8 +531,8 @@ If you discover any security related issues, please email rappa819@gmail.com ins
 
 ## Credits
 
-- [Anthony Rappa](https://github.com/tanthammar)
-- [All Contributors](../../contributors)
+- [kdion4891](https://github.com/kdion4891)
+- [Anthony Rappa](https://github.com/rappasoft)
 
 ## License
 
