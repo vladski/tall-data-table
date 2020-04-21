@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Views\Contracts;
+namespace Tanthammar\TallDataTable\Views\Contracts;
 
 /**
  * Interface Table.

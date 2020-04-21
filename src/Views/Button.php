@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Views;
+namespace Tanthammar\TallDataTable\Views;
 
 /**
  * Class Button.
@@ -74,6 +74,6 @@ class Button extends Component
      */
     public function view(): string
     {
-        return 'laravel-livewire-tables::components.button';
+        return 'tall-data-table::components.button';
     }
 }

@@ -7,9 +7,9 @@
             @endif
 
             {{-- search field --}}
-            @include('laravel-livewire-tables::includes.search')
-            @include('laravel-livewire-tables::includes.offline')
-            @include('laravel-livewire-tables::includes.loading')
+            @include('tall-data-table::includes.search')
+            @include('tall-data-table::includes.offline')
+            @include('tall-data-table::includes.loading')
 
             {{-- Main section --}}
             <main x-data="{ modal: false }" class="flex-1 relative z-0 overflow-y-auto py-6 focus:outline-none"
@@ -24,8 +24,8 @@
 
                     {{-- sort tags and perPage select --}}
                     @if($models->isNotEmpty())
-                        @include('laravel-livewire-tables::includes.sort-tags')
-                        @include('laravel-livewire-tables::includes.per-page-select')
+                        @include('tall-data-table::includes.sort-tags')
+                        @include('tall-data-table::includes.per-page-select')
                     @endif
                 </div>
 
@@ -53,9 +53,9 @@
                             @else
                             @if(isset($noTable)) @include($noTable) @else
                                 <div class="{{ $tableClass }}" dusk="table">
-                                    @include('laravel-livewire-tables::includes.header')
-                                    @include('laravel-livewire-tables::includes.body')
-                                    @include('laravel-livewire-tables::includes.footer')
+                                    @include('tall-data-table::includes.header')
+                                    @include('tall-data-table::includes.body')
+                                    @include('tall-data-table::includes.footer')
                                 </div>
                             @endif
                             @endif
@@ -66,7 +66,7 @@
                 @if(isset($modal)) @include($modal) @endif
             </main>
             {{-- Footer Pagination --}}
-            @include('laravel-livewire-tables::includes.pagination')
+            @include('tall-data-table::includes.pagination')
         </div>
 <script>
     document.addEventListener('turbolinks:load', function () {

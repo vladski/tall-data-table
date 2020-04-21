@@ -1,5 +1,5 @@
 @if ($tableFooterEnabled)
     <div class="{{ $tableFooterClass }}">
-        @include('laravel-livewire-tables::includes.th')
+        @include('tall-data-table::includes.th')
     </div>
 @endif

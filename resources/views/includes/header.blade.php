@@ -1,5 +1,5 @@
 @if ($tableHeaderEnabled)
     <div class="{{ $tableHeaderClass }}" dusk="thead">
-        @include('laravel-livewire-tables::includes.th')
+        @include('tall-data-table::includes.th')
     </div>
 @endif

@@ -5,8 +5,8 @@ namespace App\Http\Livewire;
 use App\DummyModel;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
-use Rappasoft\LaravelLivewireTables\TableComponent;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Tanthammar\TallDataTable\TableComponent;
+use Tanthammar\TallDataTable\Views\Column;
 
 class DummyComponent extends Component
 {

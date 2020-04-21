@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Commands;
+namespace Tanthammar\TallDataTable\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;

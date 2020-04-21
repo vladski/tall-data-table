@@ -1,19 +1,19 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables;
+namespace Tanthammar\TallDataTable;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Livewire\WithPagination;
-use Rappasoft\LaravelLivewireTables\Traits\Checkboxes;
-use Rappasoft\LaravelLivewireTables\Traits\Loading;
-use Rappasoft\LaravelLivewireTables\Traits\Offline;
-use Rappasoft\LaravelLivewireTables\Traits\Pagination;
-use Rappasoft\LaravelLivewireTables\Traits\Search;
-use Rappasoft\LaravelLivewireTables\Traits\Sorting;
-use Rappasoft\LaravelLivewireTables\Traits\Table;
-use Rappasoft\LaravelLivewireTables\Traits\Yajra;
+use Tanthammar\TallDataTable\Traits\Checkboxes;
+use Tanthammar\TallDataTable\Traits\Loading;
+use Tanthammar\TallDataTable\Traits\Offline;
+use Tanthammar\TallDataTable\Traits\Pagination;
+use Tanthammar\TallDataTable\Traits\Search;
+use Tanthammar\TallDataTable\Traits\Sorting;
+use Tanthammar\TallDataTable\Traits\Table;
+use Tanthammar\TallDataTable\Traits\Yajra;
 
 /**
  * Class TableComponent.
@@ -111,7 +111,7 @@ trait TableComponent
      */
     public function view(): string
     {
-        return 'laravel-livewire-tables::table-component';
+        return 'tall-data-table::table-component';
     }
 
     public function render()
