@@ -6,6 +6,10 @@ use App\DummyModel;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 use Tanthammar\TallDataTable\TableComponent;
+use Tanthammar\TallDataTable\Traits\BuildQuery;
+use Tanthammar\TallDataTable\Traits\EmailModal;
+use Tanthammar\TallDataTable\Traits\Searchable;
+use Tanthammar\TallDataTable\Views\Boolean;
 use Tanthammar\TallDataTable\Views\Column;
 
 class DummyComponent extends Component
@@ -16,16 +20,31 @@ class DummyComponent extends Component
     {
         $this->setupTable();
         $this->fill([
-            'title' => trans('crud.model.title'),
+            'title' => trans('crud.dummymodel.title'),
             'sortField' => 'name',
-            'sortAsc' => true,
-            'modelName' => 'event',
+            'sortDirection' => 'asc',
+            'routePath' => 'dummymodels',
         ]);
     }
 
     public function query(): Builder
     {
-        return DummyModel::query();
+        $query = DummyModel::select('id', 'name', 'description', 'published');
+        return $this->generate($query);
+    }
+
+    public function render()
+    {
+        return view($this->view(), [
+            'groups' => $this->groups(),
+            'models' => $this->$this->DB_searchable(
+                $this->query(),
+                $contains = ['name', 'description'],
+                $exact = ['id'],
+                $numeric = null,
+                $dates = null,
+            ),
+        ]);
     }
 
     public function columns()
@@ -42,8 +61,8 @@ class DummyComponent extends Component
                         ->icon([
                             'true' => 'light/eye',
                             'false' => 'light/eye-slash',
-                            'true-class' => 'text-aurora-green',
-                            'false-class' => 'text-aurora-red'
+                            'true-class' => 'text-green-500',
+                            'false-class' => 'text-red-500'
                         ])
                 ]),
         ];

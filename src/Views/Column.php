@@ -25,6 +25,11 @@ class Column
     protected $align = 'text-left';
     protected $visibility = 'flex md:table-cell';
 
+    protected $mediaCollection = null;
+    protected $mediaClass = 'rounded';
+    protected $tagType = null;
+    protected $tagClass = null;
+
 
     protected $iconBefore = false;
     protected $iconBeforeColor = null;
@@ -33,6 +38,7 @@ class Column
     protected $iconEmptyWarningColor = null;
 
     protected $orderBy = null;
+    protected $displayAttribute = null;
 
     protected $searchable = false;
     protected $searchCallback = null;
@@ -106,6 +112,28 @@ class Column
     }
 
     /**
+     * @return $this
+     */
+    public function media($collectionName, $mediaClass = null): self
+    {
+        $this->type = 'media';
+        $this->mediaCollection = $collectionName;
+        $this->mediaClass = $mediaClass ?? 'rounded';
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function tags($tagType = null, $tagClass = null): self
+    {
+        $this->type = 'tags';
+        $this->tagType = $tagType;
+        $this->tagClass = $tagClass;
+        return $this;
+    }
+
+    /**
      * @param  callable|null  $callable
      *
      * @return $this
@@ -123,6 +151,21 @@ class Column
     public function orderBy($field): self
     {
         $this->orderBy = $field;
+        return $this;
+    }
+
+    /**
+     * @param  callable|null  $callable
+     *
+     * @return $this
+     */
+    public function displayUsing(callable $callable = null): self
+    {
+        if ($this->hasComponents()) {
+            return $this;
+        }
+        $this->displayAttribute = $callable;
+        $this->type = 'displayAttribute';
         return $this;
     }
 

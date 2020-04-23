@@ -1,5 +1,5 @@
 <?php
-
+// Creds Yajra: https://github.com/yajra/laravel-datatables/blob/9.0/src/EloquentDataTable.php
 namespace Tanthammar\TallDataTable\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -17,7 +17,7 @@ trait Yajra
      *
      * @return object
      */
-    public function relationship($attribute)
+    public static function relationship($attribute)
     {
         $parts = explode('.', $attribute);
 
@@ -34,7 +34,7 @@ trait Yajra
      *
      * @return string
      */
-    public function attribute(Builder $query, $relationships, $attribute)
+    public static function attribute(Builder $query, $relationships, $attribute)
     {
         $table = '';
         $last_query = $query;
@@ -88,9 +88,9 @@ trait Yajra
      *
      * @return mixed|null
      */
-    protected function getColumnByAttribute($attribute)
+    public static function getColumnByAttribute($columns, $attribute)
     {
-        foreach ($this->columns() as $col) {
+        foreach ($columns as $col) {
             if ($col->attribute === $attribute) {
                 return $col;
             }

@@ -7,8 +7,7 @@
 @else
     @foreach($column->getComponents() as $component)
         @if (!$component->isHidden())
-            @include($component->view(), ['model' => $model, 'attributes' => $component->getAttributes(), 'options' =>
-$component->getOptions()])
+            @include($component->view(), ['model' => $model, 'attributes' => $component->getAttributes(), 'options' => $component->getOptions()])
         @endif
     @endforeach
 @endif

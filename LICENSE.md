@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) Tina Hammar
+Copyright (c) Anthony Rappa
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

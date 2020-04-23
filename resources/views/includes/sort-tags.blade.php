@@ -7,7 +7,7 @@
         @if ($column->sortable())
             <a href="#" role="button" wire:click.prevent="sortBy('{{ $column->orderBy ?? $column->attribute }}')"
                class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-indigo-100 text-indigo-800">
-                <x-sort-icon :field="$column->attribute" :sortField="$sortField" :sortAsc="$sortAsc"/>
+                @include('tall-data-table::includes.sort-icon')
                 {{ $column->text }}
             </a>
         @endif

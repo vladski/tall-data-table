@@ -2,6 +2,8 @@
 @if($column->type=='emptyWarning' && empty($model->{$column->attribute}))
 @svg('light/exclamation-triangle', 'td-icon'. $column->iconEmptyWarningColor)
 @endif
+@if($column->type=='media') @include('tall-data-table::components.media') @endif
+@if($column->type=='tags') @include('tall-data-table::components.tags') @endif
 @php
 switch ($column->type) {
     case 'html':
@@ -11,6 +13,14 @@ switch ($column->type) {
     case 'unescaped':
         echo $model->{$column->attribute};
         break;
+
+    case 'displayAttribute':
+        if(is_callable($column->displayAttribute)) {
+            echo app()->call($column->displayAttribute, ['model' => $model]);
+        } else {
+            echo $model->{$column->attribute};
+        }
+    break;            
 
     case 'blade':
         $php_html = Blade::compileString($column->bladeString);

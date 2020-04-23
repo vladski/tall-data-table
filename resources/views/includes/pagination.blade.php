@@ -4,5 +4,3 @@
     <div class="col">{{ $models->links($paginationView) }}</div>
 </footer>
 @endif
-
-

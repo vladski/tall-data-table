@@ -18,7 +18,7 @@ trait Table
     public $hasRowPanel = false; //click to show panel on each row
     public $rowPanel = null; // in w-full td, colspan-all, has $model + $columns
     public $sidePanel = null; // left side of table, suitable for extended search form
-  
+
     /**
      * Visibility for areas
      */
@@ -38,14 +38,16 @@ trait Table
     public $theadTrClass = null;
     public $thClass = null;
     public $tdClass = null;
-    
+    public $groupedTdClass = null;
+    public $groupClass = null;
+
 
     /**
      * Methods
      */
     public $title = '';
-    public $modelName = '';
-    
+    public $routePath = '';
+
 
 
     /**
@@ -133,6 +135,8 @@ trait Table
             'theadTrClass',
             'thClass',
             'tdClass',
+            'groupedTdClass',
+            'groupClass',
             'tableHeaderEnabled',
             'tableFooterEnabled',
             'arrow',

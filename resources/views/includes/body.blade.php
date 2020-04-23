@@ -11,23 +11,23 @@
             @else
                 <div 
                 dusk="tr" 
-                x-on:click.stop="window.location.href='{{route("app.{$modelName}s.show", [$modelName => $model->{$model->getRouteKeyName()}])}}'"
+                x-on:click.stop="window.location.href='{{route("app.{$routePath}.show", [$model->routeKey => $model->{$model->getRouteKeyName()}])}}'"
                 class="cursor-pointer {{ $trClass }}" 
                 wire:key="{{ $model->{$model->getRouteKeyName()} }}">
             @endif
                 {{-- default view --}}
                 @if(empty($tbodyDesktop) && empty($tbodyMobile))
-                    @include('tall-data-table::includes.body-tr')
+                    @include('tall-data-table::includes.tr')
 
                 {{-- custom desktop view --}}
                 @elseif(filled($tbodyDesktop) && empty($tbodyMobile))
                         <span class="hidden md:display-contents">@include($tbodyDesktop)</span>
-                        <span class="display-contents md:hidden">@include('tall-data-table::includes.body-tr')</span>
+                        <span class="display-contents md:hidden">@include('tall-data-table::includes.tr')</span>
 
                 {{-- custom mobile view --}}
                 @elseif(empty($tbodyDesktop) && filled($tbodyMobile))
                         <span class="display-contents md:hidden">@include($tbodyMobile)</span>
-                        <span class="hidden md:display-contents">@include('tall-data-table::includes.body-tr')</span>
+                        <span class="hidden md:display-contents">@include('tall-data-table::includes.tr')</span>
                 @endif
             </div>
             @if($hasRowPanel && $selectedID == $model->uuid)

@@ -10,6 +10,10 @@ trait Search
     /**
      * Search.
      */
+    public function updatedSearch()
+    {
+        $this->gotoPage(1);
+    }
 
     /**
      * Whether or not searching is enabled.

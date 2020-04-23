@@ -1,4 +1,4 @@
-{{-- @if ($offlineIndicator) --}}
+@if ($offlineIndicator)
 <div x-data="{open: true}" x-show="open" wire:offline class="relative bg-aurora-red">
     <div class="max-w-screen-xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
         <div class="pr-16 sm:text-center sm:px-16">
@@ -13,4 +13,4 @@
         </div>
     </div>
 </div>
-{{-- @endif --}}
+@endif

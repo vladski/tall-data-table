@@ -1,3 +1,4 @@
+<div class="display-contents">
 @if (is_numeric($refresh))
 <div class="flex flex-col h-screen justify-between" wire:poll.{{ $refresh }}.ms>
     @elseif (is_string($refresh))
@@ -19,7 +20,7 @@
                     {{-- Title --}}
                     <h1 class="text-2xl font-semibold text-gray-900">
                         {{ $title }} <span class="cursor-pointer"
-                            x-on:click="window.location.href = '{{ route("app.{$modelName}s.create") }}'">@svg('light/plus-circle', 'w-7 h-7 ml-3 text-gray-600 inline-flex')</span>
+                            x-on:click="window.location.href = '{{ route("app.{$routePath}.create") }}'">@svg('light/plus-circle', 'w-7 h-7 ml-3 text-gray-600 inline-flex')</span>
                     </h1>
 
                     {{-- sort tags and perPage select --}}
@@ -73,3 +74,4 @@
         document.title = '{{ $title }}'
     })
 </script>
+</div>

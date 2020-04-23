@@ -1,6 +1,6 @@
 <span @foreach ($attributes as $key=> $value) {{ $key }}="{{ $value }}" @endforeach >
     @php
-        $value = $options['keyVal'] ? ($model->{$options['column']}[$options['key']] || false) : ($model->{$options['column']} || false);
+        $value = $options['keyVal'] ? \Arr::get($model->{$options['column']}, $options['key'], false) : ($model->{$options['column']} || false);
         $true_class = \Arr::get($options, 'icon.true-class', 'text-green-500');
         $false_class = \Arr::get($options, 'icon.false-class', 'text-red-500');
         $true = \Arr::get($options, 'icon.true', 'solid/toggle-on');
@@ -14,3 +14,4 @@
     @endif
     {{ $text }}
 </span>
+

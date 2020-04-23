@@ -24,19 +24,21 @@ trait Sorting
      * @var bool
      */
     public $sortDirection = 'asc';
-    public $sortAsc = true;
 
     /**
      * @param $attribute
      */
-    public function sort($attribute): void
+    public function sortBy($attribute): void
     {
+        clock($attribute, $this->sortField);
         if ($this->sortField !== $attribute) {
             $this->sortDirection = 'asc';
+            clock($this->sortDirection);
         } else {
             $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
         }
 
         $this->sortField = $attribute;
+        clock($this->sortDirection);
     }
 }

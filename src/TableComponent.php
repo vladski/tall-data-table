@@ -82,13 +82,12 @@ trait TableComponent
     abstract public function columns(): array;
 
 
-    public function groups()
+    public function groups(): array
     {
         foreach ($this->columns() as $column) {
             $groups[$column->group][] = $column;
         }
-        if (count($groups) > 1) {
-            //only sort if there are groups
+        if (count($groups) > 1) { //only sort if there are groups
             $groups = \Arr::sortRecursive($groups);
         }
         return $groups;
@@ -120,20 +119,25 @@ trait TableComponent
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return mixed
      */
     public function tableView(): View
     {
         return view($this->view(), [
             'groups' => $this->groups(),
-            'models' => $this->paginationEnabled ? $this->models()->paginate($this->perPage) : $this->models()->get(),
+            'models' => $this->models_whereLike(),
         ]);
     }
 
+    protected function models_whereLike()
+    {
+        return $this->paginationEnabled ? $this->models()->paginate($this->perPage) : $this->models()->get();
+    }
+
     /**
-     * @return Builder
+     * @return Builder|LengthAwarePaginator
      */
-    public function models(): Builder
+    public function models()
     {
         $models = $this->query();
 
@@ -144,7 +148,7 @@ trait TableComponent
                         if (is_callable($column->searchCallback)) {
                             $query = app()->call($column->searchCallback, ['builder' => $query, 'term' => $this->search]);
                         } elseif (Str::contains($column->attribute, '.')) {
-                            $relationship = $this->relationship($column->attribute);
+                            $relationship = Yajra::relationship($column->attribute);
 
                             $query->orWhereHas($relationship->name, function (Builder $query) use ($relationship) {
                                 $query->where($relationship->attribute, 'like', '%' . $this->search . '%');
@@ -158,16 +162,16 @@ trait TableComponent
         }
 
         if (Str::contains($this->sortField, '.')) {
-            $relationship = $this->relationship($this->sortField);
-            $sortField = $this->attribute($models, $relationship->name, $relationship->attribute);
+            $relationship = Yajra::relationship($this->sortField);
+            $sortField = Yajra::attribute($models, $relationship->name, $relationship->attribute);
         } else {
             $sortField = $this->sortField;
         }
 
-        if (($column = $this->getColumnByAttribute($this->sortField)) !== null && is_callable($column->sortCallback)) {
+        if (($column = Yajra::getColumnByAttribute($this->columns(), $this->sortField)) !== null && is_callable($column->sortCallback)) {
             return app()->call($column->sortCallback, ['models' => $models, 'sortField' => $sortField, 'sortDirection' => $this->sortDirection]);
         }
 
-        return $models->orderBy($sortField, $this->sortDirection);
+        return $models->orderByTranslation($sortField, $this->sortDirection);
     }
 }
