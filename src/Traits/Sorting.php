@@ -30,15 +30,12 @@ trait Sorting
      */
     public function sortBy($attribute): void
     {
-        clock($attribute, $this->sortField);
         if ($this->sortField !== $attribute) {
             $this->sortDirection = 'asc';
-            clock($this->sortDirection);
         } else {
             $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
         }
-
         $this->sortField = $attribute;
-        clock($this->sortDirection);
+        $this->gotoPage(1);
     }
 }

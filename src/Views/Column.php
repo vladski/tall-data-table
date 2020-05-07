@@ -3,6 +3,7 @@
 namespace Tanthammar\TallDataTable\Views;
 
 use Illuminate\Support\Str;
+use Tanthammar\TallDataTable\Traits\CanBeHidden;
 use Tanthammar\TallDataTable\Traits\HasComponents;
 
 /**
@@ -10,7 +11,7 @@ use Tanthammar\TallDataTable\Traits\HasComponents;
  */
 class Column
 {
-    use HasComponents;
+    use HasComponents, CanBeHidden;
 
     protected $type = 'default';
     protected $text;
@@ -18,24 +19,30 @@ class Column
     protected $key;
 
     protected $group = 1;
-    protected $thColspan = 1;
-    protected $tdColspan = 1;
+    protected $colspan = 1;
     protected $colClass = null;
+    protected $labelClass = 'pr-2 text-xs text-gray-400 text-left';
+    protected $labelWidth = 'w-15';
 
     protected $align = 'text-left';
-    protected $visibility = 'flex md:table-cell';
+    protected $visibility = null;
+    protected $hideValue = false;
 
     protected $mediaCollection = null;
     protected $mediaClass = 'rounded';
     protected $tagType = null;
     protected $tagClass = null;
 
+    protected $relation = null;
+    protected $relationAttribute = null;
 
     protected $iconBefore = false;
     protected $iconBeforeColor = null;
     protected $iconAfter = false;
     protected $iconAfterColor = null;
     protected $iconEmptyWarningColor = null;
+
+    protected $tooltip = false;
 
     protected $orderBy = null;
     protected $displayAttribute = null;
@@ -165,7 +172,7 @@ class Column
             return $this;
         }
         $this->displayAttribute = $callable;
-        $this->type = 'displayAttribute';
+        $this->type = 'display-attribute';
         return $this;
     }
 
@@ -189,6 +196,24 @@ class Column
     /**
      * @return $this
      */
+    public function labelClass($class): self
+    {
+        $this->labelClass = $class;
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function labelWidth($class): self
+    {
+        $this->labelWidth = $class;
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function unescaped(): self
     {
         if ($this->hasComponents()) {
@@ -203,7 +228,7 @@ class Column
      */
     public function clickCall($field = null): self
     {
-        $this->type = 'clickCall';
+        $this->type = 'click-call';
         $this->callfield = $field ?? null;
         return $this;
     }
@@ -229,13 +254,19 @@ class Column
 
     public function hideOnMobile(): self
     {
-        $this->visibility = 'hidden md:table-cell';
+        $this->visibility = 'tablet:hidden';
         return $this;
     }
 
     public function hideOnDesktop(): self
     {
-        $this->visibility = 'flex md:hidden';
+        $this->visibility = 'md:hidden';
+        return $this;
+    }
+
+    public function hideValue(): self
+    {
+        $this->hideValue = true;
         return $this;
     }
 
@@ -249,20 +280,11 @@ class Column
     }
 
     /**
-     * Header colspan
-     */
-    public function thColspan($num): self
-    {
-        $this->thColspan = $num ?? 1;
-        return $this;
-    }
-
-    /**
      * Body colspan
      */
-    public function tdColspan($num): self
+    public function colspan($num): self
     {
-        $this->tdColspan = $num ?? 1;
+        $this->colspan = $num ?? 1;
         return $this;
     }
 
@@ -285,14 +307,28 @@ class Column
     public function keyVal($key): self
     {
         $this->key = $key;
-        $this->type = 'keyVal';
+        $this->type = 'key-val';
+        return $this;
+    }
+
+    /**
+     * @param string $relation
+     * @param string $relationAttribute
+     * @return $this
+     */
+    public function related($relation, $relationAttribute): self
+    {
+        $this->relation = $relation;
+        $this->relationAttribute = $relationAttribute;
+        $this->type = 'related';
         return $this;
     }
 
 
-    public function emptyWarning($color = null): self
+    public function emptyWarning($tooltip = false, $color = null): self
     {
-        $this->type = 'emptyWarning';
+        $this->type = 'empty-warning';
+        $this->tooltip = $tooltip ?? false;
         $this->iconEmptyWarningColor = $color ?? null;
         return $this;
     }

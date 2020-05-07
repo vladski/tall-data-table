@@ -23,14 +23,14 @@ trait Pagination
      *
      * @var array
      */
-    public $perPageOptions = [10, 15, 25];
+    public $perPageOptions = [12, 16, 20, 24];
 
     /**
      * Amount of items to show per page.
      *
      * @var int
      */
-    public $perPage = 15;
+    public $perPage = 12;
 
     /**
      * The label for the per page filter.

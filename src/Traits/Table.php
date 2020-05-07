@@ -25,6 +25,8 @@ trait Table
     public $tableHeaderEnabled = true;
     public $tableFooterEnabled = false;
     public $arrow = true;
+    public $createButton = true;
+    public $visibleSortTags = false;
     //protected $groups = [];
 
     /**
@@ -35,6 +37,7 @@ trait Table
     public $tbodyClass = null;
     public $tableFooterClass = null;
     public $trClass = null;
+    public $trGridCols = 'sm:grid-cols-2';
     public $theadTrClass = null;
     public $thClass = null;
     public $tdClass = null;

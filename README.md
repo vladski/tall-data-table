@@ -1,7 +1,3 @@
-# This branch requirements
-- This branch requires https://github.com/adamwathan/blade-svg for **font-awesome icons**. Please setup the package following the instructions on that repo.
-- It uses **Tailwind** css instead of Bootstrap
-
 # A dynamic table component for Laravel Livewire
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/tanthammar/tall-data-table.svg?style=flat-square)](https://packagist.org/packages/tanthammar/tall-data-table)
@@ -15,10 +11,10 @@ The docs are not complete, and there package is evolving every day.
 # IT IS NOT STABLE YET.
 
 
-
 ## Inspiration From:
 
 - [https://github.com/kdion4891/tall-data-table](https://github.com/kdion4891/tall-data-table)
+- [https://github.com/rappasoft/laravel-livewire-tables](https://github.com/rappasoft/laravel-livewire-tables)
 - [https://github.com/yajra/laravel-datatables](https://github.com/yajra/laravel-datatables)
 
 ## Changelog
@@ -29,14 +25,11 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-### Security
-
-If you discover any security related issues, please email rappa819@gmail.com instead of using the issue tracker.
 
 ## Credits
 
-- [Anthony Rappa](https://github.com/tanthammar)
-- [All Contributors](../../contributors)
+- [kdion4891](https://github.com/kdion4891)
+- [Anthony Rappa](https://github.com/rappasoft)
 
 ## License
 

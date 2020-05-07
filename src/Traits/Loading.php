@@ -16,7 +16,7 @@ trait Loading
      *
      * @var bool
      */
-    public $loadingIndicator = false;
+    public $loadingIndicator = true;
 
     /**
      * The loading message that gets displayed.

@@ -1,29 +1,34 @@
 <?php
 
-namespace App\Http\Livewire;
+App\Http\Livewire\App\DummyModel;
 
 use App\DummyModel;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 use Tanthammar\TallDataTable\TableComponent;
+use App\Http\Livewire\Traits\Published;
 use Tanthammar\TallDataTable\Traits\BuildQuery;
-use Tanthammar\TallDataTable\Traits\EmailModal;
+use App\Http\Livewire\Traits\EmailModal;
 use Tanthammar\TallDataTable\Traits\Searchable;
+use Tanthammar\TallDataTable\Traits\DbSearchable;
 use Tanthammar\TallDataTable\Views\Boolean;
 use Tanthammar\TallDataTable\Views\Column;
 
 class DummyComponent extends Component
 {
-    use TableComponent;
+    use TableComponent, EmailModal, Searchable, DbSearchable, BuildQuery;
 
     public function mount()
     {
+        Gate::authorize('viewAny dummymodel');
         $this->setupTable();
         $this->fill([
             'title' => trans('crud.dummymodel.title'),
             'sortField' => 'name',
             'sortDirection' => 'asc',
             'routePath' => 'dummymodels',
+            'createButton' =>  Gate::allows('create dummymodel'),
         ]);
     }
 
@@ -37,7 +42,7 @@ class DummyComponent extends Component
     {
         return view($this->view(), [
             'groups' => $this->groups(),
-            'models' => $this->$this->DB_searchable(
+            'models' => $this->DB_searchable(
                 $this->query(),
                 $contains = ['name', 'description'],
                 $exact = ['id'],
@@ -51,20 +56,9 @@ class DummyComponent extends Component
     {
         return [
             Column::make('Nr', 'id')->searchable()->sortable(),
-            Column::make('Name')->searchable()->sortable(),
-            Column::make('Description')->searchable()->sortable(),
-            Column::make('Published', 'published')
-                ->sortable()
-                ->hideOnMobile()
-                ->components([
-                    Boolean::make(null, 'published')
-                        ->icon([
-                            'true' => 'light/eye',
-                            'false' => 'light/eye-slash',
-                            'true-class' => 'text-green-500',
-                            'false-class' => 'text-red-500'
-                        ])
-                ]),
+            Column::make(trans('fields.name'), 'name')->class('td-title')->searchable()->sortable(),
+            Column::make(trans('fields.description'), 'description')->searchable()->sortable(),
+            Published::icon(),
         ];
     }
 }

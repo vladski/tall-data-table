@@ -1,0 +1,1 @@
+{{ new \Illuminate\Support\HtmlString( $model->{$column->attribute} ) }}

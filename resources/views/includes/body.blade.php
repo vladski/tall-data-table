@@ -5,14 +5,15 @@
             @if($hasRowPanel)
                 <div 
                 dusk="tr" 
-                class="cursor-pointer {{ $trClass }}" 
-                wire:key="{{ $model->uuid }}" 
-                wire:click.stop="selectModel('{{ $model->uuid }}')">
+                class="cursor-pointer {{ $trClass }} {{ $trGridCols }}" 
+                wire:key="{{ $model->uuid }}"
+                wire:click.stop="$emit('modelSelected', '{{ $model->uuid }}')"
+                x-on:click="sidePanel = true">
             @else
                 <div 
                 dusk="tr" 
                 x-on:click.stop="window.location.href='{{route("app.{$routePath}.show", [$model->routeKey => $model->{$model->getRouteKeyName()}])}}'"
-                class="cursor-pointer {{ $trClass }}" 
+                class="cursor-pointer {{ $trClass }} {{ $trGridCols }}" 
                 wire:key="{{ $model->{$model->getRouteKeyName()} }}">
             @endif
                 {{-- default view --}}
@@ -21,22 +22,15 @@
 
                 {{-- custom desktop view --}}
                 @elseif(filled($tbodyDesktop) && empty($tbodyMobile))
-                        <span class="hidden md:display-contents">@include($tbodyDesktop)</span>
+                        <span class="tablet:hidden md:display-contents">@include($tbodyDesktop)</span>
                         <span class="display-contents md:hidden">@include('tall-data-table::includes.tr')</span>
 
                 {{-- custom mobile view --}}
                 @elseif(empty($tbodyDesktop) && filled($tbodyMobile))
-                        <span class="display-contents md:hidden">@include($tbodyMobile)</span>
-                        <span class="hidden md:display-contents">@include('tall-data-table::includes.tr')</span>
+                    <span class="tablet:hidden md:display-contents">@include('tall-data-table::includes.tr')</span>
+                    <span class="display-contents md:hidden">@include($tbodyMobile)</span>
                 @endif
             </div>
-            @if($hasRowPanel && $selectedID == $model->uuid)
-            <div class="display-block full-width">
-                {{-- <td colspan="{{ count(array_dot($groups), COUNT_RECURSIVE) }}"> --}}
-                    @include($rowPanel)
-                {{-- </td> --}}
-            </div>
-            @endif
         @endif
     @endforeach
 </div>

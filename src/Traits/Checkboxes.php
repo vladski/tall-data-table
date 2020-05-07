@@ -19,13 +19,6 @@ trait Checkboxes
     public $checkbox = false;
 
     /**
-     * The side to put the checkboxes on.
-     *
-     * @var string
-     */
-    public $checkboxLocation = 'left';
-
-    /**
      * The model attribute to bind to the checkbox array.
      *
      * @var string

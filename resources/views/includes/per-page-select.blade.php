@@ -1,6 +1,6 @@
 @if ($paginationEnabled)
 {{-- Per page select, hidden on small screens --}}
-<div class="hidden ml-2 sm:flex sm:ml-auto items-center">
+<div class="hidden ml-2 sm:flex items-center">
     <span class="text-xs pr-2">{{ $perPageLabel }}:</span>
     <select dusk="per-page-select" wire:model="perPage" class="form-control">
         @if (is_array($perPageOptions))

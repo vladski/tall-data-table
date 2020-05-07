@@ -57,11 +57,11 @@ trait TableComponent
      */
     public function setTranslationStrings()
     {
-        $this->loadingMessage = __('Loading...');
-        $this->offlineMessage = __('You are not currently connected to the internet.');
+        $this->loadingMessage = trans('global.loading');
+        $this->offlineMessage = trans('offline_warning');
         $this->noResultsMessage = trans('messages.not_found');
         $this->perPageLabel = trans('pagination.per_page');
-        $this->searchLabel = __('Search...');
+        $this->searchLabel = trans('global.search');
     }
 
     public $selectedID = null;
@@ -88,14 +88,16 @@ trait TableComponent
             $groups[$column->group][] = $column;
         }
         if (count($groups) > 1) { //only sort if there are groups
-            $groups = \Arr::sortRecursive($groups);
+            foreach($groups as $group) {
+                $group = \Arr::sortRecursive($group);
+            }
         }
         return $groups;
     }
 
     public function searchTooltip()
     {
-        $tooltip = $this->searchLabel . ' ';
+        $tooltip = $this->searchLabel . ': ';
 
         foreach ($this->columns() as $column) {
             if ($column->isSearchable()) {
@@ -103,6 +105,15 @@ trait TableComponent
             }
         }
         return $tooltip;
+    }
+
+    public function translatedTooltip($array)
+    {
+        $tooltip = $this->searchLabel . ': ';
+        foreach ($array as $field) {
+            $trans[] = trans('fields.' . $field);
+        }
+        return $tooltip . implode(", ", $trans);
     }
 
     /**
