@@ -13,7 +13,7 @@ The docs are not complete, and there package is evolving every day.
 
 ## Inspiration From:
 
-- [https://github.com/kdion4891/tall-data-table](https://github.com/kdion4891/tall-data-table)
+- [https://github.com/kdion4891/laravel-livewire-tables](https://github.com/kdion4891/laravel-livewire-tables)
 - [https://github.com/rappasoft/laravel-livewire-tables](https://github.com/rappasoft/laravel-livewire-tables)
 - [https://github.com/yajra/laravel-datatables](https://github.com/yajra/laravel-datatables)
 

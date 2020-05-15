@@ -10,8 +10,8 @@
             <input 
             @if (is_numeric($searchDebounce)) wire:model.debounce.{{ $searchDebounce }}ms="search" @endif
             @if ($disableSearchOnLoading) wire:loading.attr="disabled" @endif
-            dusk="datatable-search-input" 
-            id="search_field"
+            id="search_field" 
+            name="search_field" 
             class="block w-full h-full pl-8 pr-3 py-2 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 sm:text-sm"
             placeholder="{{ $searchLabel }}" type="search"/>
         </div>

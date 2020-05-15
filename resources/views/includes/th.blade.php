@@ -5,8 +5,8 @@
 @else
     {{-- checkbox --}}
     @if($checkbox)
-    <div wire:click.stop dusk="checkbox-all" class="leading-4 px-4 py-3 table-cell">
-        <input type="checkbox" wire:model="checkboxAll" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+    <div wire:click.stop class="leading-4 px-4 py-3 table-cell">
+        <input name="checkboxAll" type="checkbox" wire:model="checkboxAll" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
     </div>
     @endif
     {{-- loop --}}

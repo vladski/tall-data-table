@@ -1,1 +1,0 @@
-<td class="{{$tdClass}}">@svg('light/chevron-right', 'ml-auto h-5 w-5 text-gray-400')</td>
